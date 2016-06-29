@@ -3,6 +3,7 @@
 import io
 from os.path import join, dirname, abspath
 import sys
+from setuptools import setup, find_packages
 
 PY2 = sys.version_info[0] == 2
 
@@ -38,7 +39,8 @@ else:
 params = dict(
     name=NAME,
     description=DESCRIPTION,
-    packages=['workalendar', 'workalendar.europe'],
+    packages=find_packages(
+        exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     version=__VERSION__,
     long_description=read_relative_file('README.rst'),
     author='Bruno Bord',
